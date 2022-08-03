@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2 class="r-fit-text">Blinkenlights, friend or foe:</h2>
+					<h2 class="r-fit-text">A history of side channel attacks through the ages</h2>
+					<h4 >By William Ben Embarek</h4>
+				</section>
+				<section> 
+					<section data-auto-animate>
+						<h1>Who Am I</h1>
+					</section>
+
+					<section data-auto-animate>
+						<h1>Who Am I</h1>
+						<ul>
+							<li>Hacker</li>
+							<li>Security Specialist @ WithSecure</li>
+							<li>CTF Player @ Kalmarunionen</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section data-auto-animate>
+						<h1>What is a side channel attack?</h1>
+					</section>
+					<section data-auto-animate>
+						<h1>What is a side channel attack?</h1>
+						Side-channel attack is any attack based on extra information that can be gathered because of the fundamental way a computer protocol or algorithm is implemented, rather than flaws in the design of the protocol or algorithm itself.
+					</section>
+					<section data-auto-animate>
+						<h1>What is a side channel attack?</h1>
+						Side-channel attack is any attack based on extra information that can be gathered because of the fundamental way a <s>computer protocol or algorithm is implemented, rather than flaws in the design of the protocol or algorithm itself.</s> system is implemented.
+					</section>
+					<section data-background-image="media/bakery.jpg">
+						<aside class="notes">
+							You own a bakery, a new bakery opens up and you are having trouble estimating demand.
+							Go to rival start at open, buy a peice of bread, keep reciept
+							Go to rival end of day, buy bread, keep recipet. Compare order numbers
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						WWII - The rise of side channel attacks
+					</section>
+					<section data-background-image="media/panzer-v-panther.jpg">
+						<aside class="notes">
+							Before D-Day, Panzer V Panther tank was new, american tanks effectiveness unknown, however had only been seen so far in Italy.
+							Rumors of massive amounts of Panzer V started.
+							Serial numbers on captured and destroyed tanks were checked and the wheels were observed to be sequentially numbered, including serial number of the gear mold.
+							Which then allowed for a an estimate of 270 Panzer V Panther tanks produced in Feburary 1944, substantially higher than intelligence had stated, post war documents confirmed it to be 276 Panzer V Panther tanks had been produced.
+							This is the first big example of what I would define as a side channel attack, a system was introduced without consideration of how it would work and it was abused.
+						</aside>
+					</section>
+					<section>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/0/06/TTY_mixer_131B2_TM-11-2222_Fig_3.jpg">
+						<aside class="notes">
+							The 131-B2 mixer was an encerypted teleprinter in use during the second world war, built off the one time pad principle.
+							Built by several electromechanical relays (switches).
+							The EM radiation created ended up revealing the plain text. 
+							Information was leaked in 3 areas: Radiated Signals, Noise being carried by the communication wires, and magnetic fields.
+							The fixed version 131-A1 with shielding and filtering was however too expensive to deploy and hard to maintain
+							The solution was just a 30M perimeter around the equipment.
+							later in 1951 the CIA discovered they could recover the signals from up too half a KM away.
+							This gave us signal and power line filters.
+							This turned into a cat and mouse game of finding issues and fixing them.
+							Audible sounds could also be exploited it turns out, soundproofing the room made the problem worse as it provided clearer signals to recorders.
+						</aside>
+					</section>
+					<section>
+						<img src="https://live.staticflickr.com/9/13431024_51985ee91e_k.jpg">
+						<aside class="notes">
+							Towards the very end of WW2, the russians gifted the following seal to the US Ambassador to the Soviet Union.
+							Was gifted by a group children as a gesture of friendship. It was of course scanned for active electronics but nothing was found.
+
+						</aside>
+					</section>
+					<section>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Bugged-great-seal-open.jpg">
+						<aside class="notes">
+							Key word was active components... Inside there was an antenna, acting as a repeater, connected to a membrane.
+							Sound waves from within the room would modulate the antenna. When a radio signal of the correct frequency was pointed towards the antenna it would resonate "repeating" the signal.
+							However due to the modulation by the sound waves this could be demodulated by an ordinary radio reciever tuned to the same frequency.
+
+							Discovered in 1951 by accident by a radio operator at the British Embassy listening too an Open Soviet air force radio channel.
+							The bug was created by Leon Theremin of the Theremin instrument fame!
+							Fun fact this is essentially how RFID works
+
+							The age of side channel espionage had properly begun.
+						</aside>>
+					</section>
+					<section>
+						<h1>Introducing TEMPEST</h1>
+						<aside class="notes">
+							A backronym Telecommunications Electronics Material Protected from Emanating Spurious Transmissions
+							Is a set of standards for protecting hardware from leaking signals, ranging from shielding requirements, too Red Black seperation, where wires in which sensitive data (red) must be physically seperate by X cm.
+							In 1958 the first policy regarding EMF radiation standards, policy was adopted by Canada, UK within the next year.
+
+							With the Cold War well underway as well all forms of data leakage were to be controlled,
+							At the same time over 900 various different forms of listening devices and sensors had been found in US installations behind the Iron Curtain, TEMPEST leakages needed to be taken seriously.
+						</aside>
+					</section>
+					<section data-background-image="https://www.euro-emc.co.uk/admin/resources/products/tempest-shielding-anechoic-european-emc-products-w1000h1000.jpg">
+						<aside class="notes">
+							This led to the development of rooms inside rooms, shielding from EMF, Acoustic or TEMPEST leakages
+						</aside>
+					</section>
+					<section data-background-image="https://www.euro-emc.co.uk/admin/resources/products/tempest-shielding-modular-rooms-european-emc-products-w1000h1000.jpg">
+
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>The age of Hackers</h1>
+						<aside class="notes">
+							Jumping forwards to the 80s, computing had become ubiquitous, with a fair amount of todays audience already using computers.
+							Before we go any further we are going to start with a video clip which could explain this better than I ever could.
+						</aside>
+					</section>
+					<section>
+						<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mcV6izFG3vQ?start=78" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<aside class="notes">
+							Wim Van Eck published a technical analysis online, showing with around 100dkk worth of equipment he could eavesdrop on CRT monitors.
+							For the time this was huge as TEMPEST attacks were considered to be only government budget worthy attacks.
+							Van Eck phreaking as the term was called has been used by many, including IBM for license verification, having the display produce radiation matching to the serial key in use.
+							IBM would then wardrive to find people who hadnt paid for a license.
+						</aside>
+					</section>
+					<section data-background-image="media/switch.jpg">
+						<h2>The implications of Aesthetics</h2>
+						<aside class="notes">
+							Almost every single computer in the world features lights which blink for diagnostic purposes, also known as Blinkenlights,
+							stemming from a humorous faux german sign that has graced computer rooms and datacenters since at least IBM 1955
+						</aside>
+					</section>
+					<section data-background-image="https://upload.wikimedia.org/wikipedia/commons/7/7e/Blinkenlights_sign.svg">
+					</section>
+					<section>
+						<img src="https://pinoutguide.com/visual/Ethernet10BaseT.jpg">
+						<aside class="notes">
+							Back to the network switch, the activity LEDs show when data is being transmitted, easiest way to hook this up? just wire the RX+ cable directly too the LED, easy activity LED.
+							Do you see the issue?
+							In 2002 Joe Lughry and David A Umphress had a research paper titled "Information Leakage from Optical Emanations"
+							By recording the LED one could optically read all the bits coming over the network cable.
+						</aside>
+					</section>
+					<section>
+						<h3>Different Types of Side Channel Attacks</h3>
+						<ul>
+							<li>Timing Attacks</li>
+							<li>Power-Monitoring Attacks</li>
+							<li>Cache Attacks</li>
+							<li>Electromagnetical Attacks</li>
+							<li>Acoustic Attacks</li>
+							<li>Software Initiated Attack</li>
+							<li>Optical Attack</li>
+							<li>And Many more</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Timing Attacks</h4>
+						<pre><code data-trim data-noescape>
+							for(uint8_t i = 0; i < sizeof(correct_passwd); i++){
+								if (correct_passwd[i] != passwd[i]){
+									passbad = 1;
+									break;
+								}
+							}
+							if (passbad){
+								my_puts("PASSWORD FAIL\n");
+								led_error(1);
+							} else {
+								my_puts("Access granted, Welcome!\n");
+								led_ok(1);
+							}
+						</code></pre>
+					</section>
+					<section>
+						<aside class="notes">
+							Power Draw: AES Differential Power Analysis Attacks. 
+							A quick primer on AES.
+							AES consists of 4 operations: addRoundKey, SubBytes, ShiftRows and Mix Columns.
+							Differential Power Analysis attacks on AES attack the SubBytes operation.
+							
+						</aside>
+						<h4>Power Monitoring Attacks</h4>
+						<img src="https://miro.medium.com/max/1400/0*EcER_bRovR7WS0S9">
+					</section>
+					<section>
+						<h4>Cache Attacks</h4>
+						<aside class="notes">
+							Talk about meltdown and spectre.
+							For Electromagnetical attacks we already covered them.
+						</aside>
+						<iframe height=500em width=1000em src="https://meltdownattack.com/"></iframe>
+					</section>
+					<section data-background-iframe="https://www.youtube.com/embed/5aphvxpSt3o" data-background-interactive>
+						<h4>Acoustic Attacks</h4>
+						<aside class="notes">
+							research also suggests that acoustic attacks can involve listening to the stresses in heatsinks that occur during encryption where the temperature rises and falls as the processor works harder
+						</aside>
+					</section>
+					<section>
+						<h4>Software Initiated Attacks</h4>
+						<img src="https://blogger.googleusercontent.com/img/a/AVvXsEj2JQ7ifi8mZYkvGaexHo5m_r4ugbMqTaGkV0__q3chK2BdVx2QFYr8ruzBHU3WtP0I4czaoefGzZzlFCZ103l4eHimuds2GfHWh3eE5Srjb0RIsXiKddE1-aTTmlakjS3co_xGZ90Nq9tKmvYji6zwmIiE1u9vUJdelLChmCy8STbKSEvDY_affVwW=s512">
+						<aside class="notes">
+							While a rarer form of side channel attack, attacks such as Row Hammer.
+							Which attempt to flip bits by repeatedly flipping the surrounding bits are a form of side channel attack.
+						</aside>
+					</section>
+					<section>
+						<h4>Optical Attacks - 1</h4>
+						<img src="media/laser-mic.png">
+						<aside class="notes">
+							As we already covered optical attacks on blinkenlights, optical attacks can also use lasers.
+							Using a simple laser pointer, a photocell and a AUX cable, one can actually easily record audio across long distances as long as there is something that can vibrate.
+							This attack is the reason why top secret meeting rooms wont allow video recording, as with a high enough budget you don't need the laser and can read the vibrations from the video alone.
+
+							As a quick side note, only do this if you have permission.
+						</aside>
+					</section>
+					<section>
+						<h4>Optical Attacks -2</h4>
+						<iframe height=500em width=1000em src="https://lightcommands.com/"></iframe>
+						<aside class="notes">
+							Light commands was an attack that uses the inverse principle of the previous attack.
+							By modulating audio into a laser one could remotely from a large distance trigger smart speaker devices.
+						</aside>
+					</section>
+					<section>
+						<h4>And many others</h4>
+						<iframe height="500em" width="1000em" src="https://hackaday.com/2022/07/22/satan-turns-hard-drive-cable-into-antenna-to-defeat-air-gapped-security/"></iframe>
+						<aside class="notes">
+							And many other Side channel attacks, there are new attacks almost all the time, data exfiltration is still a side channel attack.
+						</aside>
+					</section>
+				</section>
+				<section>
+					<h2>The lesson:</h2>
+					<h5>Systems are hard to implement. for every single design consideration there is a way it can be abused</h5>
+					<h7>And for the love of god do not create your own cryptographic algoritms</h7>
+				</section>
+				<section>
+					Thanks for coming too my talk!
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes]
+			});
+		</script>
+	</body>
+</html>
