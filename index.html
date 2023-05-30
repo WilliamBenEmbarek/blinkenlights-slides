@@ -28,12 +28,24 @@
 
 					<section data-auto-animate>
 						<h1>Who Am I</h1>
-						<ul>
-							<li>Hacker</li>
-							<li>Security Specialist @ WithSecure</li>
-							<li>CTF Player @ Kalmarunionen</li>
-						</ul>
+							<p class="fragment">Security Consultant @ WithSecure</p>
+							<p class="fragment">CTF Player @ Kalmarunionen</p>
+							<p class="fragment">Bornhack Participant @ Pyjam.as camp</p>
 					</section>
+				</section>
+				<section>
+					<aside class="notes">
+						First of all this talk is not about the hit 2000 movie Blinkende Lygter
+						What is this talk going to cover. what you can learn from it.
+					</aside>
+					<h1>TL;DR</h1>
+					<ul>
+						<li class="fragment">What is a side channel attack</li>
+						<li class="fragment">A history of side channel attacks from ~40s - ~80s</li>
+						<li class="fragment">A bunch of more side channel attacks</li>
+						<li class="fragment">Why attacks like these pop up</li>
+						<li class="fragment">And why they matter</li>
+					</ul>
 				</section>
 				<section>
 					<section data-auto-animate>
@@ -69,7 +81,7 @@
 						</aside>
 					</section>
 					<section>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/0/06/TTY_mixer_131B2_TM-11-2222_Fig_3.jpg">
+						<img src="media/131-b2-mixer.jpg">
 						<aside class="notes">
 							The 131-B2 mixer was an encerypted teleprinter in use during the second world war, built off the one time pad principle.
 							Built by several electromechanical relays (switches).
@@ -84,17 +96,17 @@
 						</aside>
 					</section>
 					<section>
-						<img src="https://live.staticflickr.com/9/13431024_51985ee91e_k.jpg">
+						<img src="media/theThing.jpg">
 						<aside class="notes">
 							Towards the very end of WW2, the russians gifted the following seal to the US Ambassador to the Soviet Union.
-							Was gifted by a group children as a gesture of friendship. It was of course scanned for active electronics but nothing was found.
+							Was gifted by a group children as a gesture of friendship. It was of course scanned by an Non Linear Junction Detector for active electronics but nothing was found.
 
 						</aside>
 					</section>
 					<section>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Bugged-great-seal-open.jpg">
+						<img src="media/TheThingOpen.jpg">
 						<aside class="notes">
-							Key word was active components... Inside there was an antenna, acting as a repeater, connected to a membrane.
+							Key word was active components... Inside there was an completely passive bug consiting of an antenna, acting as a repeater, connected to a membrane.
 							Sound waves from within the room would modulate the antenna. When a radio signal of the correct frequency was pointed towards the antenna it would resonate "repeating" the signal.
 							However due to the modulation by the sound waves this could be demodulated by an ordinary radio reciever tuned to the same frequency.
 
@@ -116,12 +128,13 @@
 							At the same time over 900 various different forms of listening devices and sensors had been found in US installations behind the Iron Curtain, TEMPEST leakages needed to be taken seriously.
 						</aside>
 					</section>
-					<section data-background-image="https://www.euro-emc.co.uk/admin/resources/products/tempest-shielding-anechoic-european-emc-products-w1000h1000.jpg">
+					<section data-background-image="media/tempest-shielding-anechoic.jpg">
 						<aside class="notes">
-							This led to the development of rooms inside rooms, shielding from EMF, Acoustic or TEMPEST leakages
+							This led to the development of rooms inside rooms, shielding from EMF, Acoustic or TEMPEST leakages.
+							While they are used for top secret stuff they are also used other places, fx: Secure RNG or for radar testing
 						</aside>
 					</section>
-					<section data-background-image="https://www.euro-emc.co.uk/admin/resources/products/tempest-shielding-modular-rooms-european-emc-products-w1000h1000.jpg">
+					<section data-background-image="media/tempetRoom.jpg">
 
 					</section>
 				</section>
@@ -133,8 +146,7 @@
 							Before we go any further we are going to start with a video clip which could explain this better than I ever could.
 						</aside>
 					</section>
-					<section>
-						<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mcV6izFG3vQ?start=78" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<section data-background-video="media/BBC-VanEck.mp4">
 						<aside class="notes">
 							Wim Van Eck published a technical analysis online, showing with around 100dkk worth of equipment he could eavesdrop on CRT monitors.
 							For the time this was huge as TEMPEST attacks were considered to be only government budget worthy attacks.
@@ -143,16 +155,24 @@
 						</aside>
 					</section>
 					<section data-background-image="media/switch.jpg">
-						<h2>The implications of Aesthetics</h2>
+						<h2 style="text-shadow: 2px 2px black">The implications of Aesthetics</h2>
 						<aside class="notes">
 							Almost every single computer in the world features lights which blink for diagnostic purposes, also known as Blinkenlights,
 							stemming from a humorous faux german sign that has graced computer rooms and datacenters since at least IBM 1955
 						</aside>
 					</section>
-					<section data-background-image="https://upload.wikimedia.org/wikipedia/commons/7/7e/Blinkenlights_sign.svg">
+					<section data-background-image="media/blinkenSign.svg">
+						<aside class="notes">
+							ACHTUNG!  ALLES LOOKENSPEEPERS!  Das
+							computermachine ist nicht fuer gefingerpoken und mittengrabben.
+							Ist easy schnappen der springenwerk, blowenfusen und poppencorken
+							mit spitzensparken.  Ist nicht fuer gewerken bei das dumpkopfen.
+							Das rubbernecken sichtseeren keepen das cotten-pickenen hans in
+							das pockets muss; relaxen und watchen das blinkenlichten.
+					   </aside>
 					</section>
 					<section>
-						<img src="https://pinoutguide.com/visual/Ethernet10BaseT.jpg">
+						<img src="media/Ethernet10BaseT.jpg">
 						<aside class="notes">
 							Back to the network switch, the activity LEDs show when data is being transmitted, easiest way to hook this up? just wire the RX+ cable directly too the LED, easy activity LED.
 							Do you see the issue?
@@ -194,31 +214,30 @@
 					<section>
 						<aside class="notes">
 							Power Draw: AES Differential Power Analysis Attacks. 
-							A quick primer on AES.
-							AES consists of 4 operations: addRoundKey, SubBytes, ShiftRows and Mix Columns.
-							Differential Power Analysis attacks on AES attack the SubBytes operation.
-							
+							Honestly I could talk about this attack for hours, or I have the hardware with me needed to do this itself so lets do it together after the talk.
+
 						</aside>
 						<h4>Power Monitoring Attacks</h4>
-						<img src="https://miro.medium.com/max/1400/0*EcER_bRovR7WS0S9">
+						<img src="media/PowerAnalysis.png">
 					</section>
 					<section>
 						<h4>Cache Attacks</h4>
 						<aside class="notes">
-							Talk about meltdown and spectre.
-							For Electromagnetical attacks we already covered them.
+							Talk about meltdown and spectre. 2018
+							For EMF attacks we already covered them.
 						</aside>
 						<iframe height=500em width=1000em src="https://meltdownattack.com/"></iframe>
 					</section>
-					<section data-background-iframe="https://www.youtube.com/embed/5aphvxpSt3o" data-background-interactive>
+					<section data-background-video="media/keytap3.mp4">
 						<h4>Acoustic Attacks</h4>
 						<aside class="notes">
 							research also suggests that acoustic attacks can involve listening to the stresses in heatsinks that occur during encryption where the temperature rises and falls as the processor works harder
 						</aside>
+						<h1 class="fragment">🤔</h1>
 					</section>
 					<section>
 						<h4>Software Initiated Attacks</h4>
-						<img src="https://blogger.googleusercontent.com/img/a/AVvXsEj2JQ7ifi8mZYkvGaexHo5m_r4ugbMqTaGkV0__q3chK2BdVx2QFYr8ruzBHU3WtP0I4czaoefGzZzlFCZ103l4eHimuds2GfHWh3eE5Srjb0RIsXiKddE1-aTTmlakjS3co_xGZ90Nq9tKmvYji6zwmIiE1u9vUJdelLChmCy8STbKSEvDY_affVwW=s512">
+						<img src="media/rowhammer.jpg">
 						<aside class="notes">
 							While a rarer form of side channel attack, attacks such as Row Hammer.
 							Which attempt to flip bits by repeatedly flipping the surrounding bits are a form of side channel attack.
@@ -230,6 +249,7 @@
 						<aside class="notes">
 							As we already covered optical attacks on blinkenlights, optical attacks can also use lasers.
 							Using a simple laser pointer, a photocell and a AUX cable, one can actually easily record audio across long distances as long as there is something that can vibrate.
+							Didnt we also just cover that by listening too someone typing we can recover text?
 							This attack is the reason why top secret meeting rooms wont allow video recording, as with a high enough budget you don't need the laser and can read the vibrations from the video alone.
 
 							As a quick side note, only do this if you have permission.
@@ -239,6 +259,7 @@
 						<h4>Optical Attacks -2</h4>
 						<iframe height=500em width=1000em src="https://lightcommands.com/"></iframe>
 						<aside class="notes">
+							2019
 							Light commands was an attack that uses the inverse principle of the previous attack.
 							By modulating audio into a laser one could remotely from a large distance trigger smart speaker devices.
 						</aside>
@@ -252,17 +273,25 @@
 					</section>
 				</section>
 				<section>
+					<aside class="notes">
+						So what can we learn
+					</aside>
 					<h2>The lesson:</h2>
-					<h5>Systems are hard to implement. for every single design consideration there is a way it can be abused</h5>
-					<h7>And for the love of god do not create your own cryptographic algoritms</h7>
+					<h5 class="fragment">Systems are hard to implement. for every single design consideration there is a way it can be abused</h5>
+					<h7 class="fragment">And for the love of god use someone else's cryptographic libraries, they have been tested for attacks like these</h7>
 				</section>
 				<section>
-					Thanks for coming too my talk!
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
+					<h2>Further Reading</h2>
+					<p class="fragment">Silence on the Wire - Michal Zalewski</p>
+					<p class="fragment">The Art of Intrusion - Kevin Mitnick</p>
+					<p class="fragment">The Cuckoos Egg - Clifford Stoll</p>
+				</section>
+				<section>
+					<h2>Thanks for coming too my talk!</h2>
+					
+					<p>Website / unused blog : https://embar.io/</p>
+					<p>Untappd : WillBenEm</p>
+					<p>Kalmar{h0571n6_c0nf3r3nc3_74lk5_ju57_f0r_c7f_fl465_15_c00l}</p>
 					<br>
 				</section>
 			</div>
